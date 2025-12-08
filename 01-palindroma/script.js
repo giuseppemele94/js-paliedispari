@@ -2,35 +2,37 @@
 Creare una funzione per capire se la parola inserita è palindroma * */
 
 //output a schermo 
-const mex = document.getElementById("text-console") ;  
+const mex = document.getElementById("text-console");
 
 //input utente
-const user = prompt("Inserisci una parola :"); 
+const user = prompt("Inserisci una parola :");
+
+// normalizzo la parola in minuscolo per il controllo
+const normalized = user.toLowerCase();
 
 //invoco la funzione 
-palindroma(user.toLowerCase()); 
+const result = reversed(normalized);
 
+
+if (result === normalized) {
+    mex.textContent = `La parola ${user} è palindroma `;
+    console.log("palindroma");
+}
+else {
+    mex.textContent = `La parola ${user} non è palindroma `;
+    console.log("non palindroma");
+}
 
 
 // Funzione palindroma 
-function palindroma (parola) {
+function reversed(word) {
 
-    let risultato =""; 
-    
+    let result = "";
+
     //salvo la parola al contrario 
-    for ( let x = parola.length - 1; x >= 0 ; x--) {
-        risultato += parola[x]; 
+    for (let x = word.length - 1; x >= 0; x--) {
+        result += word[x];
     }
 
-
-    if(risultato === parola) {
-       mex.textContent = `La parola ${parola} è palindroma `; 
-        console.log("palindroma");
-    }
-    else {
-        mex.textContent = `La parola ${parola} non è palindroma `;  
-        console.log("non palindroma");
-    }
-
-    return risultato ; 
+ return result  ; 
 } 
